@@ -7,6 +7,7 @@ import store from './redux/store';
 import { AppContainer } from './styled-components/layout.styled.component';
 import theme from './theme';
 import { SnackbarUtilsConfigurator } from './utilities/snackbar.utility';
+import { LayoutMovies } from './layout/LayoutMovies';
 
 // Routes
 const Login = lazy(() => import('./pages/Login/Login'));
@@ -21,9 +22,11 @@ const App = () => {
             <Suspense fallback={<div>Loading ...</div>}>
               <Provider store={store}>
                 <BrowserRouter>
-                  <Routes>
-                    <Route path="/" element={<Login />} />
-                  </Routes>
+                  <LayoutMovies>
+                    <Routes>
+                      <Route path="/app" element={<Login />} />
+                    </Routes>
+                  </LayoutMovies>
                 </BrowserRouter>
               </Provider>
             </Suspense>
