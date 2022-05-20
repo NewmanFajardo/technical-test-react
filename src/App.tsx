@@ -8,6 +8,7 @@ import { AppContainer } from './styled-components/layout.styled.component';
 import theme from './theme';
 import { SnackbarUtilsConfigurator } from './utilities/snackbar.utility';
 import { LayoutMovies } from './layout/LayoutMovies';
+import { Loader } from './components/Loader';
 
 // Routes
 const Login = lazy(() => import('./pages/Login/Login'));
@@ -19,12 +20,14 @@ const App = () => {
         <AppContainer className="App">
           <SnackbarProvider>
             <SnackbarUtilsConfigurator />
-            <Suspense fallback={<div>Loading ...</div>}>
+            <Suspense fallback={
+              <Loader />
+            }>
               <Provider store={store}>
                 <BrowserRouter>
                   <LayoutMovies>
                     <Routes>
-                      <Route path="/app" element={<Login />} />
+                      <Route path="/" element={<Login />} />
                     </Routes>
                   </LayoutMovies>
                 </BrowserRouter>
