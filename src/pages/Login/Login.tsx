@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUserAdapter } from '../../adapters';
+import { createUserAdapter } from '../../adapters/user.adapter';
 import { useFetchAndLoad } from '../../hooks';
 import { createUser, modifyUser } from '../../redux/states/user';
 import { AppStore } from '../../redux/store';
