@@ -29,6 +29,7 @@ import { Loader } from './../../components/Loader';
 import { createMovieDetails } from '../../redux/states/movieDetails';
 import { createMovieSimilar } from '../../redux/states/movieSimilar';
 import imageDefault from './../../assets/default-movie.webp';
+import { CardComponent } from '../../components/Card';
 
 export const Movie = () => {
   const { loading, callEndpoint } = useFetchAndLoad();
@@ -93,45 +94,19 @@ export const Movie = () => {
               </div>
             </Grid>
 
-            <Grid item xs={6} sm={8} style={{ padding: "30px"}}>
+            <Grid item xs={6} sm={8}>
               { (movieSelectedState.id !== 0 && movieDetailsState.title.length) && (
-                  <Grid item xs={12} style={{ padding: "30px 0px"}}>
-                    <Card>
-                      <CardActionArea>
-                        <CardMedia
-                          component="img"
-                          height="200px"
-                          image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
-                          alt="green iguana"
-                        />
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {movieDetailsState.title}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {movieDetailsState.overview}
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                      <CardActions 
-                        disableSpacing
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between"
-                        }}
-                      >
-                        <Typography>
-                          vote count: {movieDetailsState.voteCount}
-                        </Typography>
-
-                        <Typography>
-                          vote average: {movieDetailsState.voteAverage}
-                        </Typography>
-                      </CardActions>
-                    </Card>
+                <Grid item style={{ padding: "30px 0px"}}>
+                  <CardComponent 
+                    title={movieDetailsState.title}
+                    description={movieDetailsState.overview}
+                    voteCount={movieDetailsState.voteCount}
+                    voteAverage={movieDetailsState.voteAverage}
+                    image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
+                    height={"200px"}
+                  />
                   </Grid>
-                )
-              }
+              )}
 
               <Grid container spacing={2} className="content-similar-movie">
                 {
@@ -139,46 +114,19 @@ export const Movie = () => {
                     {
                       movieSimilarState.map((movie, index) => (
                         <Grid key={index} item xs={12} sm={6} md={3}>
-                          <Card>
-                            <CardActionArea>
-                              <CardMedia
-                                component="img"
-                                height="150px"
-                                image={imageDefault}
-                                alt="green iguana"
-                              />
-                              <CardContent>
-                                <Typography gutterBottom variant="h5" component="div" className='title' title={movie.title}>
-                                  {movie.title}
-                                </Typography>
-                                <Typography 
-                                  variant="body2" 
-                                  color="text.secondary"
-                                  style={{
-                                    height: "120px",
-                                    overflowY: "auto",
-                                  }}
-                                >
-                                  {movie.overview}
-                                </Typography>
-                              </CardContent>
-                            </CardActionArea>
-                            <CardActions 
-                              disableSpacing
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between"
-                              }}
-                            >
-                              <Typography>
-                                vote count: {movie.voteCount}
-                              </Typography>
-
-                              <Typography>
-                                vote average: {movie.voteAverage}
-                              </Typography>
-                            </CardActions>
-                          </Card>
+                          <CardComponent 
+                            title={movie.title}
+                            description={movie.overview}
+                            voteCount={movie.voteCount}
+                            voteAverage={movie.voteAverage}
+                            image={imageDefault}
+                            height={"150px"}
+                            className='title'
+                            style={{
+                              height: "120px",
+                              overflowY: "auto",
+                            }}
+                          />
                         </Grid>
                       ))
                     }
