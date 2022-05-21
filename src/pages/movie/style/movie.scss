@@ -33,4 +33,11 @@
 .content-similar-movie{
   height: calc(100vh - 65px - 420px);
   overflow: auto;
+
+  .title{
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }

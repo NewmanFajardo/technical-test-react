@@ -150,7 +150,7 @@ export const Movie = () => {
                                 alt="green iguana"
                               />
                               <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                                <Typography gutterBottom variant="h5" component="div" className='title' title={movie.title}>
                                   {movie.title}
                                 </Typography>
                                 <Typography 

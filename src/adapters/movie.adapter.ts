@@ -36,7 +36,7 @@ export const movieSimilarsAdapter = (similar: any) => {
         voteAverage: movie.vote_average,
         voteCount: movie.vote_count,
         overview: movie.overview,
-        title: movie.name,
+        title: movie.title,
       }
     ))
   :
