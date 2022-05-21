@@ -1,7 +1,7 @@
 .content-loading{
     background-color: #1976d2; 
-    height: 100vh; 
-    width: 100vw; 
+    height: 100%; 
+    width: 100%; 
     position: absolute; 
     z-index: 999999;
 }

@@ -1,14 +1,13 @@
 import { Header } from "../components/Header";
 import { Props } from "./models/props";
+import './style/layoutMovies.scss';
 
 export function LayoutMovies( props: Props ) {
   return (
     <>
       <Header />
 
-      <div style={{
-        marginTop: "60px"
-      }}>
+      <div className="container-children">
         { props.children }
       </div>
     </>
