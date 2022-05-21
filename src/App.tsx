@@ -11,7 +11,6 @@ import { LayoutMovies } from './layout/LayoutMovies';
 import { Loader } from './components/Loader';
 
 // Routes
-const Login = lazy(() => import('./pages/Login/Login'));
 const Movie = lazy(() => import('./pages/movie/Movie'));
 
 const App = () => {
@@ -28,8 +27,8 @@ const App = () => {
                 <BrowserRouter>
                   <LayoutMovies>
                     <Routes>
-                      <Route path="/" element={<Login />} />
                       <Route path="/movie" element={<Movie />} />
+                      <Route path="/tv" element={<Movie />} />
                     </Routes>
                   </LayoutMovies>
                 </BrowserRouter>

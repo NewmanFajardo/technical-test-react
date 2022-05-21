@@ -11,7 +11,7 @@ export function Header() {
       <Toolbar>
         <Link
           component={RouterLink}
-          to="/"
+          to="/movie"
           variant="h6"
           color="inherit"
           noWrap
@@ -24,6 +24,42 @@ export function Header() {
           <Avatar alt="Remy Sharp" src={icon} />
           <Typography ml={1} mt={1}>NF</Typography>
         </Link>
+
+        <span 
+          style={{
+            display: "flex",
+          }}
+        >
+          <Link
+            component={RouterLink}
+            to="/tv"
+            variant="h6"
+            color="inherit"
+            noWrap
+            underline="none"
+            sx={{ mr: "auto" }}
+            style={{
+              display: "flex"
+            }}
+          >
+            <Typography ml={1} mt={1}>TV</Typography>
+          </Link>
+
+          <Link
+            component={RouterLink}
+            to="/movie"
+            variant="h6"
+            color="inherit"
+            noWrap
+            underline="none"
+            sx={{ mr: "auto" }}
+            style={{
+              display: "flex"
+            }}
+          >
+            <Typography ml={1} mt={1}>MOVIE</Typography>
+          </Link>
+        </span>
 
       </Toolbar>
     </AppBar>
