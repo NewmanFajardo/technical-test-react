@@ -97,7 +97,7 @@ export const Movie = () => {
 
             <Grid item xs={6} sm={8} style={{ padding: "30px"}}>
               { (movieSelectedState.id !== 0 && movieDetailsState.title.length) && (
-                  <Grid item xs={12} style={{ padding: "30px"}}>
+                  <Grid item xs={12} style={{ padding: "30px 0px"}}>
                     <Card>
                       <CardActionArea>
                         <CardMedia
