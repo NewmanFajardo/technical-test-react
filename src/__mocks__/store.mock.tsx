@@ -3,6 +3,10 @@ import { moviesSlice } from "../redux/states/movie";
 import { movieDetailsSlice } from "../redux/states/movieDetails";
 import { movieSelectedSlice } from "../redux/states/movieSelected";
 import { movieSimilarSlice } from "../redux/states/movieSimilar";
+import { tvSlice } from "../redux/states/tv";
+import { tvDetailsSlice } from "../redux/states/tvDetails";
+import { tvSelectedSlice } from "../redux/states/tvSelected";
+import { tvSimilarSlice } from "../redux/states/tvSimilar";
 import { userSlice } from "../redux/states/user";
 import { AppStore } from "../redux/store";
 
@@ -13,5 +17,9 @@ export const store = configureStore<AppStore>({
     movieSelected: movieSelectedSlice.reducer,
     movieDetails: movieDetailsSlice.reducer,
     movieSimilar: movieSimilarSlice.reducer,
+    tv: tvSlice.reducer,
+    tvSelected: tvSelectedSlice.reducer,
+    tvDetails: tvDetailsSlice.reducer,
+    tvSimilar: tvSimilarSlice.reducer,
   }
 });

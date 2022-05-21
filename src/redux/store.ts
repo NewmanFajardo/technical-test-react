@@ -5,13 +5,22 @@ import { IMovie, IMovieDetails } from '../models/movie.model';
 import { movieSelectedSlice } from './states/movieSelected';
 import { movieDetailsSlice } from './states/movieDetails';
 import { movieSimilarSlice } from './states/movieSimilar';
+import { ITv, ITvDetails } from '../models/tv.model';
+import { tvSlice } from './states/tv';
+import { tvSelectedSlice } from './states/tvSelected';
+import { tvDetailsSlice } from './states/tvDetails';
+import { tvSimilarSlice } from './states/tvSimilar';
 
 export interface AppStore {
   user: any
   movies: any
   movieSelected: IMovie
   movieDetails: IMovieDetails
-  movieSimilar: IMovieDetails[]
+  movieSimilar: IMovieDetails[],
+  tv: any
+  tvSelected: ITv
+  tvDetails: ITvDetails
+  tvSimilar: ITvDetails[]
 }
 
 export default configureStore<AppStore>({
@@ -21,5 +30,10 @@ export default configureStore<AppStore>({
     movieSelected: movieSelectedSlice.reducer,
     movieDetails: movieDetailsSlice.reducer,
     movieSimilar: movieSimilarSlice.reducer,
+
+    tv: tvSlice.reducer,
+    tvSelected: tvSelectedSlice.reducer,
+    tvDetails: tvDetailsSlice.reducer,
+    tvSimilar: tvSimilarSlice.reducer,
   }
 });
