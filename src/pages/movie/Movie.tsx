@@ -49,10 +49,12 @@ export const Movie = () => {
 
   useEffect( () => {
     const getMovieDetails = async () => {
-      const movieDetailsResponse = await callEndpoint(movieDetails(movieSelectedState.id));
-      const movieSimilarResponse  = await callEndpoint(movieSimilar(movieSelectedState.id));
-      dispatch(createMovieDetails(movieDetailsAdapter(movieDetailsResponse)));
-      dispatch(createMovieSimilar(movieSimilarsAdapter(movieSimilarResponse)));
+      const responsePromise = await Promise.all([
+        callEndpoint(movieDetails(movieSelectedState.id)),
+        callEndpoint(movieSimilar(movieSelectedState.id))
+      ])
+      await dispatch(createMovieDetails(movieDetailsAdapter(responsePromise[0])));
+      await dispatch(createMovieSimilar(movieSimilarsAdapter(responsePromise[1])));
     }
     getMovieDetails(); 
   }, [movieSelectedState])

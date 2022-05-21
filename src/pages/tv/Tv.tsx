@@ -49,10 +49,12 @@ export const Tv = () => {
 
   useEffect( () => {
     const geTvDetails = async () => {
-      const tvDetailsResponse = await callEndpoint(tvDetails(tvSelectedState.id));
-      const tvSimilarResponse  = await callEndpoint(tvSimilar(tvSelectedState.id));
-      dispatch(createTvDetails(tvDetailsAdapter(tvDetailsResponse)));
-      dispatch(createTvSimilar(tvSimilarsAdapter(tvSimilarResponse)));
+      const responsePromise = await Promise.all([
+        callEndpoint(tvDetails(tvSelectedState.id)),
+        callEndpoint(tvSimilar(tvSelectedState.id))
+      ])
+      await dispatch(createTvDetails(tvDetailsAdapter(responsePromise[0])));
+      await dispatch(createTvSimilar(tvSimilarsAdapter(responsePromise[1])));
     }
     geTvDetails(); 
   }, [tvSelectedState])
