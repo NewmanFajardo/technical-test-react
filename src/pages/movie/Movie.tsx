@@ -1,10 +1,5 @@
 import { 
   Avatar,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
   Divider,
   Grid,
   List,
@@ -12,7 +7,6 @@ import {
   ListItemAvatar,
   ListItemText,
   ListSubheader,
-  Typography 
 } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,7 +32,7 @@ export const Movie = () => {
   const movieSelectedState = useSelector((store: AppStore) => store.movieSelected);
   const movieDetailsState = useSelector((store: AppStore) => store.movieDetails);
   const movieSimilarState = useSelector((store: AppStore) => store.movieSimilar);
-  
+
   useEffect( () => {
     const getMovie = async () => {
       const movies = await callEndpoint(movieChanges());

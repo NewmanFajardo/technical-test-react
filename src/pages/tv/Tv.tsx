@@ -1,10 +1,5 @@
 import { 
   Avatar,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
   Divider,
   Grid,
   List,
@@ -12,7 +7,6 @@ import {
   ListItemAvatar,
   ListItemText,
   ListSubheader,
-  Typography 
 } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
