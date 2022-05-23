@@ -39,7 +39,9 @@ export function Header() {
             underline="none"
             sx={{ mr: "auto" }}
             style={{
-              display: "flex"
+              display: "flex",
+              borderRight: "1px solid #ccc",
+              paddingRight: "10px"
             }}
           >
             <Typography ml={1} mt={1}>TV</Typography>
