@@ -56,7 +56,9 @@ export const Movie = () => {
       await dispatch(createMovieDetails(movieDetailsAdapter(responsePromise[0])));
       await dispatch(createMovieSimilar(movieSimilarsAdapter(responsePromise[1])));
     }
-    getMovieDetails(); 
+    if(movieSelectedState.id !== 0){
+      getMovieDetails(); 
+    }
   }, [movieSelectedState])
 
   const handleSelectedMovie = (movie: IMovie) => {
@@ -97,22 +99,30 @@ export const Movie = () => {
             </Grid>
 
             <Grid item xs={6} sm={8}>
-              { (movieSelectedState.id !== 0 && movieDetailsState.title.length) && (
-                <Grid item style={{ padding: "30px 0px"}}>
-                  <CardComponent 
-                    title={movieDetailsState.title}
-                    description={movieDetailsState.overview}
-                    voteCount={movieDetailsState.voteCount}
-                    voteAverage={movieDetailsState.voteAverage}
-                    image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
-                    height={"200px"}
-                  />
+              {
+                movieSelectedState.id !== 0 && movieDetailsState.title.length 
+                ? (
+                  <Grid item style={{ padding: "30px 0px"}}>
+                    <CardComponent 
+                      title={movieDetailsState.title}
+                      description={movieDetailsState.overview}
+                      voteCount={movieDetailsState.voteCount}
+                      voteAverage={movieDetailsState.voteAverage}
+                      image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
+                      height={"200px"}
+                    />
                   </Grid>
-              )}
+                )
+                :
+                (
+                  <></>
+                )
+              }
 
               <Grid container spacing={2} className="content-similar-movie">
                 {
-                  (movieSelectedState.id !== 0 && movieSimilarState.length) && (<>
+                  movieSimilarState.length ? (
+                    <>
                     {
                       movieSimilarState.map((movie, index) => (
                         <Grid key={index} item xs={12} sm={6} md={3}>
@@ -132,7 +142,11 @@ export const Movie = () => {
                         </Grid>
                       ))
                     }
-                  </>)
+                  </>
+                  )
+                  : (
+                    <></>
+                  )
                 }
               </Grid>
             </Grid>

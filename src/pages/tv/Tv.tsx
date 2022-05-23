@@ -56,7 +56,9 @@ export const Tv = () => {
       await dispatch(createTvDetails(tvDetailsAdapter(responsePromise[0])));
       await dispatch(createTvSimilar(tvSimilarsAdapter(responsePromise[1])));
     }
-    geTvDetails(); 
+    if(tvSelectedState.id !== 0){
+      geTvDetails(); 
+    }
   }, [tvSelectedState])
 
   const handleSelectedTv = (tv: ITv) => {
@@ -97,26 +99,33 @@ export const Tv = () => {
             </Grid>
 
             <Grid item xs={6} sm={8} >
-              { (tvSelectedState.id !== 0 && tvDetailsState.name.length) && (
-                <Grid item style={{ padding: "30px 0px"}}>
-                  <CardComponent 
-                    title={tvDetailsState.name}
-                    description={tvDetailsState.overview}
-                    voteCount={tvDetailsState.voteCount}
-                    voteAverage={tvDetailsState.voteAverage}
-                    image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
-                    height={"200px"}
-                  />
-                </Grid>
-              )}
-
+              {
+                tvSelectedState.id !== 0 && tvDetailsState.name.length 
+                ? (
+                  <Grid item style={{ padding: "30px 0px"}}>
+                    <CardComponent 
+                      title={tvDetailsState.name}
+                      description={tvDetailsState.overview}
+                      voteCount={tvDetailsState.voteCount}
+                      voteAverage={tvDetailsState.voteAverage}
+                      image="https://i.blogs.es/270d91/personajes-de-stan-lee/1366_2000.jpg"
+                      height={"200px"}
+                    />
+                  </Grid>
+                )
+                :
+                (
+                  <></>
+                )
+              }
               <Grid container spacing={2} className="content-similar-tv">
                 {
-                  (tvSelectedState.id !== 0 && tvSimilarState.length) && (<>
+                  tvSimilarState.length ? (
+                    <>
                     {
                       tvSimilarState.map((tv, index) => (
                         <Grid key={index} item xs={12} sm={6} md={3}>
-                          <CardComponent
+                          <CardComponent 
                             title={tv.name}
                             description={tv.overview}
                             voteCount={tv.voteCount}
@@ -132,7 +141,11 @@ export const Tv = () => {
                         </Grid>
                       ))
                     }
-                  </>)
+                  </>
+                  )
+                  : (
+                    <></>
+                  )
                 }
               </Grid>
             </Grid>

@@ -1,5 +1,5 @@
 export const tvAdapter = (tv: any) => {
-  return tv.data?.results ? 
+  return tv && tv.data && tv.data?.results ? 
     tv.data?.results?.map( (tv: any) => (
       {
         id: tv.id,

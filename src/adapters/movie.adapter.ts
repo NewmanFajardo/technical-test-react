@@ -1,5 +1,5 @@
 export const moviesAdapter = (movies: any) => {
-  return movies.data?.results ? 
+  return movies && movies.data && movies.data.results ? 
     movies.data?.results?.map( (movie: any) => (
       {
         id: movie.id,
