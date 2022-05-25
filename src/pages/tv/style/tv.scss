@@ -1,43 +1,35 @@
-.content-list-tv{
-  // width: 250px;
-  height: calc(100vh - 65px);
-  overflow: auto;
 
-  box-shadow: 5px 0px 15px 5px #bbb;
-  background-color: rgb(230, 230, 230);
-
-  &:hover{
-    cursor: pointer;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: rgb(231, 231, 231);
-    border-radius: 4px;
-  }
-
-  // &::-webkit-scrollbar-track:hover,
-  // &::-webkit-scrollbar-track:active {
-  //   background: #2f2681;
-  // }
-
-  &::-webkit-scrollbar-thumb {
-    background: #3f3783;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar {
-    width: 8px;     
-  }
+.container-movies{
+  padding-bottom: 15px;
 }
 
-.content-similar-tv{
-  height: calc(100vh - 65px - 420px);
-  overflow: auto;
-
+.content-similar-movie{
   .title{
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+}
+
+.arrow-next{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.arrow-back{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  &:hover{
+    cursor: pointer;
   }
 }

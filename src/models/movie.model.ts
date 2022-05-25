@@ -4,6 +4,7 @@ export interface IMovie {
 }
 
 export interface IMovieDetails {
+  id: number
   video: boolean
   voteAverage: number
   voteCount: number

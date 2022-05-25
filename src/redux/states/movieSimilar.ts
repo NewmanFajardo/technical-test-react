@@ -7,11 +7,11 @@ export const movieSimilarSlice = createSlice({
   name: 'movieSimilar',
   initialState: MovieSimilarEmptyState,
   reducers: {
-    createMovieSimilar: (state, action) => action.payload,
-    resetMovieSilimar: () => MovieSimilarEmptyState
+    movieSimilarReduce: (state, action) => action.payload,
+    resetMovieSilimarReduce: () => MovieSimilarEmptyState
   }
 });
 
-export const { createMovieSimilar, resetMovieSilimar } = movieSimilarSlice.actions;
+export const { movieSimilarReduce, resetMovieSilimarReduce } = movieSimilarSlice.actions;
 
 export default movieSimilarSlice.reducer;

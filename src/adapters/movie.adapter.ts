@@ -1,4 +1,6 @@
-export const moviesAdapter = (movies: any) => {
+import { IMovie, IMovieDetails } from "../models/movie.model";
+
+export const moviesAdapter = (movies: any): IMovie[] => {
   return movies && movies.data && movies.data.results ? 
     movies.data?.results?.map( (movie: any) => (
       {
@@ -10,8 +12,9 @@ export const moviesAdapter = (movies: any) => {
     []
 };
 
-export const movieDetailsAdapter = (movie: any) => {
-  return movie.data ? {
+export const movieDetailsAdapter = (movie: any): IMovieDetails => {
+  return movie && movie.data ? {
+      id: movie.data.id,
       video: movie.data.video,
       voteAverage: movie.data.vote_average,
       voteCount: movie.data.vote_count,
@@ -21,6 +24,7 @@ export const movieDetailsAdapter = (movie: any) => {
   :
     {
       video: false,
+      id: 0,
       voteAverage: 0,
       voteCount: 0,
       overview: '',
@@ -28,8 +32,8 @@ export const movieDetailsAdapter = (movie: any) => {
     }
 };
 
-export const movieSimilarsAdapter = (similar: any) => {
-  return similar.data?.results ? 
+export const movieSimilarsAdapter = (similar: any): IMovieDetails[] => {
+  return similar && similar.data && similar.data.results ? 
     similar.data?.results?.map( (movie: any) => (
       {
         video: movie.video,

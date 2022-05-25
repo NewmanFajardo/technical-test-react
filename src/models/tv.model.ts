@@ -4,6 +4,7 @@ export interface ITv {
 }
 
 export interface ITvDetails {
+  id: number
   video: boolean
   voteAverage: number
   voteCount: number

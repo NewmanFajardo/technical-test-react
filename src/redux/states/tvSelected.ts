@@ -1,20 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ITv } from '../../models/tv.model';
+import { ITvDetails } from '../../models/tv.model';
 
-export const TvSelectedEmptyState: ITv = {
-    id: 0,
-    adult: false
+export const TvSelectedEmptyState: ITvDetails = {
+  video: false,
+  id: 0,
+  voteAverage: 0,
+  voteCount: 0,
+  overview: '',
+  name: '',
 };
 
 export const tvSelectedSlice = createSlice({
   name: 'tvSelected',
   initialState: TvSelectedEmptyState,
   reducers: {
-    selectedTv: (state, action) => action.payload,
-    resetTvSelected: () => TvSelectedEmptyState
+    selectedTvReduce: (state, action) => action.payload,
+    resetTvSelectedReduce: () => TvSelectedEmptyState
   }
 });
 
-export const { selectedTv, resetTvSelected } = tvSelectedSlice.actions;
+export const { selectedTvReduce, resetTvSelectedReduce } = tvSelectedSlice.actions;
 
 export default tvSelectedSlice.reducer;

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IMovieDetails } from '../../models/movie.model';
 
 export const MovieDetailsEmptyState: IMovieDetails = {
+  id: 0,
   video: false,
   voteAverage: 0,
   voteCount: 0,
@@ -13,11 +14,11 @@ export const movieDetailsSlice = createSlice({
   name: 'movieDetails',
   initialState: MovieDetailsEmptyState,
   reducers: {
-    createMovieDetails: (state, action) => action.payload,
-    resetMovieSelected: () => MovieDetailsEmptyState
+    movieDetailsReduce: (state, action) => action.payload,
+    resetMovieSelectedReduce: () => MovieDetailsEmptyState
   }
 });
 
-export const { createMovieDetails, resetMovieSelected } = movieDetailsSlice.actions;
+export const { movieDetailsReduce, resetMovieSelectedReduce } = movieDetailsSlice.actions;
 
 export default movieDetailsSlice.reducer;
