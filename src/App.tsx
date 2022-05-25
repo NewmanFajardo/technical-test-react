@@ -12,7 +12,9 @@ import { Loader } from './components/Loader';
 
 // Routes
 const Movie = lazy(() => import('./pages/movie/Movie'));
+const MovieDetails = lazy(() => import('./pages/movie/MovieDetails'));
 const Tv = lazy(() => import('./pages/tv/Tv'));
+const TvDetails = lazy(() => import('./pages/tv/TvDetails'));
 
 const App = () => {
   return (
@@ -28,8 +30,12 @@ const App = () => {
                 <BrowserRouter>
                   <LayoutMovies>
                     <Routes>
+                      <Route index element={<Movie />} />
                       <Route path="/movie" element={<Movie />} />
+                      <Route path="/movie/details" element={<MovieDetails />} />
                       <Route path="/tv" element={<Tv />} />
+                      <Route path="/tv/details" element={<TvDetails />} />
+                      <Route path="*" element={<Movie />} />
                     </Routes>
                   </LayoutMovies>
                 </BrowserRouter>

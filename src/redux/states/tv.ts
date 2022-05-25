@@ -7,12 +7,11 @@ export const tvSlice = createSlice({
   name: 'tv',
   initialState: TvEmptyState,
   reducers: {
-    createTv: (state, action) => action.payload,
-    modifyTv: (state, action) => ({ ...state, ...action.payload }),
-    resetTv: () => TvEmptyState
+    tvReduce: (state, action) => action.payload,
+    resetTvReduce: () => TvEmptyState
   }
 });
 
-export const { createTv, modifyTv, resetTv } = tvSlice.actions;
+export const { tvReduce, resetTvReduce } = tvSlice.actions;
 
 export default tvSlice.reducer;

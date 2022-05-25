@@ -7,11 +7,11 @@ export const tvSimilarSlice = createSlice({
   name: 'tvSimilar',
   initialState: TvSimilarEmptyState,
   reducers: {
-    createTvSimilar: (state, action) => action.payload,
-    resetTvSilimar: () => TvSimilarEmptyState
+    tvSimilarReduce: (state, action) => action.payload,
+    resetTvSilimarReduce: () => TvSimilarEmptyState
   }
 });
 
-export const { createTvSimilar, resetTvSilimar } = tvSimilarSlice.actions;
+export const { tvSimilarReduce, resetTvSilimarReduce } = tvSimilarSlice.actions;
 
 export default tvSimilarSlice.reducer;

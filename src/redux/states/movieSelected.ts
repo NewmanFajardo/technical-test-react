@@ -1,20 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IMovie } from '../../models/movie.model';
+import { IMovieDetails } from '../../models/movie.model';
 
-export const MovieSelectedEmptyState: IMovie = {
-    id: 0,
-    adult: false
+export const MovieSelectedEmptyState: IMovieDetails = {
+  video: false,
+  id: 0,
+  voteAverage: 0,
+  voteCount: 0,
+  overview: '',
+  title: '',
 };
 
 export const movieSelectedSlice = createSlice({
   name: 'movieSelected',
   initialState: MovieSelectedEmptyState,
   reducers: {
-    selectedMovie: (state, action) => action.payload,
-    resetMovieSelected: () => MovieSelectedEmptyState
+    selectedMovieReduce: (state, action) => action.payload,
+    resetMovieSelectedReduce: () => MovieSelectedEmptyState
   }
 });
 
-export const { selectedMovie, resetMovieSelected } = movieSelectedSlice.actions;
+export const { selectedMovieReduce, resetMovieSelectedReduce } = movieSelectedSlice.actions;
 
 export default movieSelectedSlice.reducer;
