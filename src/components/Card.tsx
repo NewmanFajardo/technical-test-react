@@ -33,11 +33,18 @@ export function CardComponent( props: Props) {
 
   const handleGoToDetails = () => {
     if(props.component.toLowerCase() === "movie"){
-      dispatch(movieDetailsReduce(props));
+      dispatch(movieDetailsReduce({
+        ...props, 
+        overview: props.description
+      }));
     }
     
     if(props.component.toLowerCase() === "tv"){
-      dispatch(tvDetailsReduce(props));
+      dispatch(tvDetailsReduce({
+        ...props, 
+        overview: props.description, 
+        name: props.title
+      }));
     }
   }
 

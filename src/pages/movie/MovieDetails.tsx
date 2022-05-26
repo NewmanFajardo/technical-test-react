@@ -38,7 +38,9 @@ import imageDefault from './../../assets/default-movie.webp';
       else{
         getSimiliarMovie();
       }
-    }, []);
+
+      console.log("movieDetailsState", movieDetailsState)
+    }, [movieDetailsState.id]);
 
     const handleDetails = () => {
       dispatch(resetMovieSelectedReduce());

@@ -37,7 +37,7 @@ import imageDefault from './../../assets/default-movie.webp';
       else{
         getSimiliarTv();
       }
-    }, []);
+    }, [tvDetailsState.id]);
 
     const handleDetails = () => {
       dispatch(resetTvSelectedReduce());
