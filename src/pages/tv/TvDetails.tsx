@@ -53,7 +53,7 @@ import imageDefault from './../../assets/default-movie.webp';
           </div>
         ) : (
           <>
-            <Container className="container-tvs">
+            <Container className="container-tv">
               <Grid container spacing={2}>
                 <Grid item xs={12} style={{display: "flex"}}>   
                   <Link
